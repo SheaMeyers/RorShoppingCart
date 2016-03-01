@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: MyString
+  product_id: MyString
   title: MyString
-  price: 
+  price: MyString
   producer: MyString
 
 two:
-  id: MyString
+  product_id: MyString
   title: MyString
-  price: 
+  price: MyString
   producer: MyString

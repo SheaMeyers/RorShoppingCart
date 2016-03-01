@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
+      <th>Product</th>
       <th>Title</th>
       <th>Price</th>
       <th>Producer</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.id %></td>
+        <td><%= product.product_id %></td>
         <td><%= product.title %></td>
         <td><%= product.price %></td>
         <td><%= product.producer %></td>

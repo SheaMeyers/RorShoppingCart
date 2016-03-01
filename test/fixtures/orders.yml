@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  order_id: MyString
   email: MyString
-  productId: MyString
-  orderId: MyString
-  date: 2016-02-28 20:18:00
+  product_id: MyString
+  date: 2016-02-29 18:33:54
   quantity: 1
   state: MyString
 
 two:
+  order_id: MyString
   email: MyString
-  productId: MyString
-  orderId: MyString
-  date: 2016-02-28 20:18:00
+  product_id: MyString
+  date: 2016-02-29 18:33:54
   quantity: 1
   state: MyString

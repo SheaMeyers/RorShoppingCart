@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>Order</th>
       <th>Email</th>
-      <th>Productid</th>
-      <th>Orderid</th>
+      <th>Product</th>
       <th>Date</th>
       <th>Quantity</th>
       <th>State</th>
@@ -18,9 +18,9 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= order.order_id %></td>
         <td><%= order.email %></td>
-        <td><%= order.productId %></td>
-        <td><%= order.orderId %></td>
+        <td><%= order.product_id %></td>
         <td><%= order.date %></td>
         <td><%= order.quantity %></td>
         <td><%= order.state %></td>
