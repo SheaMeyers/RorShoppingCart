@@ -2,12 +2,14 @@
 
 one:
   product_id: MyString
+  picture: MyString
   title: MyString
   price: MyString
   producer: MyString
 
 two:
   product_id: MyString
+  picture: MyString
   title: MyString
   price: MyString
   producer: MyString
