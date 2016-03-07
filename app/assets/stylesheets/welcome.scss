@@ -1,3 +1,24 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	margin: 0;
+	height: 100%;
+}
+
+#products {
+	flex-direction: row;
+	width: 60%;
+	background: #0AF5ED;
+}
+
+#users {
+	flex-direction: row;
+	width: 40%;
+	background: #0FEB15;
+}
