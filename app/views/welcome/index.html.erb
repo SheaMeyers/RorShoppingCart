@@ -1,5 +1,17 @@
 <div id="products">
 	<h1>Products Section</h1>
+
+
+	<% @products.each do |product| %>
+		<%= div_for product do %>
+			<p>
+				<strong>Posted <%= product.title %></strong><br />
+				<%= h(product.price) %>
+			</p>
+		<% end %>
+	<% end %>
+
+
 </div>
 <div id="users">
 	<h1>Users Section</h1>
