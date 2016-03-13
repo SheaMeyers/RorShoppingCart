@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
   	@products = Product.all
-  	@orders = Order.all 
+  	@users = User.where(email: 'test@email.com')
   end
 end

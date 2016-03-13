@@ -1,18 +1,24 @@
 <div id="products">
 	<h1>Products Section</h1>
-
-
 	<% @products.each do |product| %>
 		<%= div_for product do %>
 			<p>
-				<strong>Posted <%= product.title %></strong><br />
+				<img src='/assets/<%= product.picture %>' height="42" width="42">
+				<strong> <%= product.title %></strong>
+				<%= product.producer %>
+				<br />
 				<%= h(product.price) %>
 			</p>
 		<% end %>
 	<% end %>
-
-
 </div>
 <div id="users">
 	<h1>Users Section</h1>
+	<% @users.each do |user| %>
+		<%= div_for user do %>
+			<p>
+				<%= user.name %>
+			</p>
+		<% end %>
+	<% end %>
 </div>
