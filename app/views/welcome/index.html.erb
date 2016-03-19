@@ -2,12 +2,12 @@
 	<h1>Products Section</h1>
 	<% @products.each do |product| %>
 		<%= div_for product do %>
-			<p>
+			<p onclick="myFunction('<%= product.title %>','<%= h(product.price) %>')">
 				<img src='/assets/<%= product.picture %>' height="42" width="42">
 				<strong> <%= product.title %></strong>
 				<%= product.producer %>
 				<br />
-				<%= h(product.price) %>
+				<%= '$' + h(product.price) %>
 			</p>
 		<% end %>
 	<% end %>
@@ -21,4 +21,6 @@
 			</p>
 		<% end %>
 	<% end %>
+	<h1>Shopping Cart</h1>
+	<ul id="itemList"></ul>
 </div>
