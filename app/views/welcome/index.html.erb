@@ -2,7 +2,7 @@
 	<h1>Products Section</h1>
 	<% @products.each do |product| %>
 		<%= div_for product do %>
-			<p onclick="addItemToCart('<%= product.title %>','<%= h(product.price) %>')">
+			<p class="product" onclick="addItemToCart('<%= product.title %>','<%= h(product.price) %>')">
 				<img src='/assets/<%= product.picture %>' height="42" width="42">
 				<strong> <%= product.title %></strong>
 				<%= product.producer %>
