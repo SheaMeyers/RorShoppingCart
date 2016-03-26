@@ -24,7 +24,11 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    #order_id, email, product_id, date, quantity, state
+    product = order_params
+
+    @order = Order.new(order_id: '1A', email: 'test@email.com', product_id: product, 
+                        date: DateTime.now.to_date, quantity: '1', state: 'incomplete')
 
     respond_to do |format|
       if @order.save
@@ -69,6 +73,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:order_id, :email, :product_id, :date, :quantity, :state)
+      params.require(:product_id)
     end
 end
