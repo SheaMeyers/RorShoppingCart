@@ -23,8 +23,8 @@
 	<% end %>
 	<h1>Shopping Cart</h1>
 	<ul id="itemList">
-		<% @orders.each do |order| %>
-			<li><%= order.product_id %></li>
+		<% @product_orders.each do |product_order| %>
+			<li><%= product_order.title %><%= '   $' + product_order.price%></li>
 		<% end %>
 	</ul>
 	<p id='subTotal'>Subtotal: $<span id="subTotalAmount">0.00</span></p>
