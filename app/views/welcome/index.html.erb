@@ -17,11 +17,15 @@
 	<% @users.each do |user| %>
 		<%= div_for user do %>
 			<p>
-				<%= user.name %>
+				<%= user %>
 			</p>
 		<% end %>
 	<% end %>
 	<h1>Shopping Cart</h1>
-	<ul id="itemList"></ul>
+	<ul id="itemList">
+		<% @orders.each do |order| %>
+			<li><%= order.product_id %></li>
+		<% end %>
+	</ul>
 	<p id='subTotal'>Subtotal: $<span id="subTotalAmount">0.00</span></p>
 </div>
