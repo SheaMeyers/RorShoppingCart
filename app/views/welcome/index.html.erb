@@ -17,7 +17,7 @@
 	<% @users.each do |user| %>
 		<%= div_for user do %>
 			<p>
-				<%= user %>
+				<%= user.name %>
 			</p>
 		<% end %>
 	<% end %>
@@ -27,5 +27,5 @@
 			<li><%= product_order.title %><%= '   $' + product_order.price%></li>
 		<% end %>
 	</ul>
-	<p id='subTotal'>Subtotal: $<span id="subTotalAmount">0.00</span></p>
+	<p id='subTotal'>Subtotal: <span id="subTotalAmount"><%= number_to_currency(@product_total) %></span> </p>
 </div>
