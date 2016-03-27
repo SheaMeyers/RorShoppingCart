@@ -7,11 +7,10 @@ var addItemToOrderTable = function(productName) {
 	  url: '/orders',
 	  data: {'product_id': productName},
 	  success: function(resp) {
-	  	console.log('Successful call ' + resp);
+	  	//Do nothing
 	  },
 	  error: function(requestObject, error, errorThrown) {
-	  	console.log('Error call' + requestObject + '\n' + 
-	  		error + '\n' + errorThrown);
+	  	//JavaScript to remove item from cart and show error message
 	  }
 	});
 }
@@ -20,14 +19,18 @@ var addItemToOrderTable = function(productName) {
 var addItemToCart = function(productName, productPrice) {
 	var price = productPrice;
 	var newItem = document.createElement('li');
+	
 	addItemToOrderTable(productName);
+	
 	newItem.innerHTML = productName + "    $" + productPrice;
 	newItem.className += "product";
 	newItem.onclick = function() {
 		newItem.parentNode.removeChild(newItem);
 		subtractFromSubTotal(price);
 	}
+	
 	addToSubtotal(productPrice);
+	
 	document.getElementById('itemList').appendChild(newItem);
 }
 

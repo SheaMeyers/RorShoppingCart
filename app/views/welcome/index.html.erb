@@ -27,5 +27,5 @@
 			<li><%= product_order.title %><%= '   $' + product_order.price%></li>
 		<% end %>
 	</ul>
-	<p id='subTotal'>Subtotal: <span id="subTotalAmount"><%= number_to_currency(@product_total) %></span> </p>
+	<p id='subTotal'>Subtotal: $<span id="subTotalAmount"><%= @product_total %></span> </p>
 </div>
