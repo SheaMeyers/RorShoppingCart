@@ -34,14 +34,20 @@ var addItemToCart = function(productName, productPrice) {
 	document.getElementById('itemList').appendChild(newItem);
 }
 
+var convertToCurrency = function(value) {
+	var stringValue = value.toString();
+	stringValue = stringValue.slice(0, stringValue.length - 2) + '.' + stringValue.slice(stringValue.length - 2, stringValue.length);
+	return stringValue;
+}
+
 var addToSubtotal = function(price) {
-	var currentTotal = parseFloat(document.getElementById('subTotalAmount').innerHTML);
-	currentTotal = currentTotal + parseFloat(price);
-	document.getElementById('subTotalAmount').innerHTML = currentTotal.toFixed(2);
+	var currentTotal = parseInt(document.getElementById('subTotalAmount').innerHTML.replace('.',''));
+	currentTotal = currentTotal + parseInt(price.replace('.',''));
+	document.getElementById('subTotalAmount').innerHTML = convertToCurrency(currentTotal);
 }
 
 var subtractFromSubTotal = function(price) {
-	var currentTotal = parseFloat(document.getElementById('subTotalAmount').innerHTML);
-	currentTotal = currentTotal - parseFloat(price);
-	document.getElementById('subTotalAmount').innerHTML = currentTotal.toFixed(2);
+	var currentTotal = parseInt(document.getElementById('subTotalAmount').innerHTML.replace('.',''));
+	currentTotal = currentTotal + parseInt(price.replace('.',''));
+	document.getElementById('subTotalAmount').innerHTML = convertToCurrency(currentTotal);
 }
