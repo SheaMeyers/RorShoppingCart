@@ -13,8 +13,7 @@ var addItemToOrderTable = function(productName) {
 	  	//JavaScript to remove item from cart and show error message
 	  }
 	});
-}
-
+};
 
 var addItemToCart = function(productName, productPrice) {
 	var price = productPrice;
@@ -24,30 +23,34 @@ var addItemToCart = function(productName, productPrice) {
 	
 	newItem.innerHTML = productName + "    $" + productPrice;
 	newItem.className += "product";
-	newItem.onclick = function() {
-		newItem.parentNode.removeChild(newItem);
-		subtractFromSubTotal(price);
-	}
-	
+    newItem.onclick = function() {
+	    removeItemFromCart(newItem, price);
+    };
+    
 	addToSubtotal(productPrice);
-	
-	document.getElementById('itemList').appendChild(newItem);
-}
+
+    document.getElementById('itemList').appendChild(newItem);
+};
+
+var removeItemFromCart = function(productElement, productPrice) {
+    productElement.parentNode.removeChild(productElement);
+    subtractFromSubTotal(productPrice);
+};
 
 var convertToCurrency = function(value) {
 	var stringValue = value.toString();
 	stringValue = stringValue.slice(0, stringValue.length - 2) + '.' + stringValue.slice(stringValue.length - 2, stringValue.length);
 	return stringValue;
-}
+};
 
 var addToSubtotal = function(price) {
 	var currentTotal = parseInt(document.getElementById('subTotalAmount').innerHTML.replace('.',''));
 	currentTotal = currentTotal + parseInt(price.replace('.',''));
 	document.getElementById('subTotalAmount').innerHTML = convertToCurrency(currentTotal);
-}
+};
 
 var subtractFromSubTotal = function(price) {
 	var currentTotal = parseInt(document.getElementById('subTotalAmount').innerHTML.replace('.',''));
-	currentTotal = currentTotal + parseInt(price.replace('.',''));
+	currentTotal = currentTotal - parseInt(price.replace('.',''));
 	document.getElementById('subTotalAmount').innerHTML = convertToCurrency(currentTotal);
-}
+};
