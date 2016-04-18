@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore all .idea files
+.idea/*
+
+# Ignore RubyMine configuration
+RorShoppingCart.iml

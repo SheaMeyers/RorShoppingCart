@@ -15,6 +15,25 @@ var addItemToOrderTable = function(productName) {
 	});
 };
 
+var removeItemFromOrderTable = function(productElement){
+
+    var productName = productElement.substring(0, productElement.indexOf('$')).trim();
+
+    $.ajax({
+        type: 'DELETE',
+        url: '/orders/1?' + $.param({'product_id': productName}),
+        data: {'product_id': productName},
+        success: function(resp) {
+            //Do nothing
+            console.log('success');
+        },
+        error: function(requestObject, error, errorThrown) {
+            //JavaScript to remove item from cart and show error message
+            console.log('error');
+        }
+    });
+};
+
 var addItemToCart = function(productName, productPrice) {
 	var price = productPrice;
 	var newItem = document.createElement('li');
@@ -35,6 +54,7 @@ var addItemToCart = function(productName, productPrice) {
 var removeItemFromCart = function(productElement, productPrice) {
     productElement.parentNode.removeChild(productElement);
     subtractFromSubTotal(productPrice);
+    removeItemFromOrderTable(productElement.innerHTML);
 };
 
 var convertToCurrency = function(value) {
