@@ -24,20 +24,15 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    #order_id, email, product_id, date, quantity, state
     product = order_params
 
     @order = Order.new(order_id: '1A', email: 'test@email.com', product_id: product, 
                         date: DateTime.now.to_date, quantity: '1', state: 'incomplete')
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    if @order.save
+      render :json => { :success => "success", :status_code => "200" }
+    else
+      render :json => { :error => "error", :status_code => "500" }
     end
   end
 
@@ -60,10 +55,10 @@ class OrdersController < ApplicationController
   def destroy
     @order =  Order.where(product_id: params[:product_id]).first
 
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
+    if @order.destroy
+      render :json => { :success => "success", :status_code => "200" }
+    else
+      render :json => { :error => "error", :status_code => "500" }
     end
   end
 
