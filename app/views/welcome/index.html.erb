@@ -24,7 +24,9 @@
 	<h1>Shopping Cart</h1>
 	<ul id="itemList">
 		<% @product_orders.each do |product_order| %>
-			<li><%= product_order.title %><%= '   $' + product_order.price%></li>
+			<li class='cart-item' onclick="removeItemFromCart(this, '<%= product_order.price %>')">
+        <%= product_order.title %><%= '   $' + product_order.price%>
+      </li>
 		<% end %>
 	</ul>
 	<p id='subTotal'>Subtotal: $<span id="subTotalAmount"><%= @product_total %></span> </p>
